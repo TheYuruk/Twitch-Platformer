@@ -23,7 +23,7 @@ public class Character : MonoBehaviour
     private void FixedUpdate()
     {
         SetCharacterState();
-        if (Input.GetMouseButtonDown(0) && 
+        if (Input.GetMouseButton(0) && 
         characterMovement.movementState != CharacterMovementController.MovementStates.Jumping)
         {
             StartCoroutine(AttackOrder());

@@ -127,4 +127,8 @@ public class CharacterMovementController : MonoBehaviour
                 break;
         }
     }
+    public void SetMovementState(MovementStates movementStates)
+    {
+        movementState = movementStates;
+    }
 }
