@@ -5,15 +5,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject[] platformPrefabs;
-    public GameObject[] attackableprefabs; 
+    public GameObject[] attackableprefabs;
     public int platformSpawnCount;
-   
+
     public Vector3 lastEndPoint;
+
+
+    public void SpawnPlatforms()
     
+    {
         
-        public void SpawnPlatforms()
-    
-    {  
         //8 Times
         for (int i = 0; i < platformSpawnCount; i++)
         {
@@ -23,18 +24,28 @@ public class GameManager : MonoBehaviour
             
             platform.transform.position = lastEndPoint;
 
+            
             int x = Random.Range(0, 10);
             {
                 if (x >= 8)
                 {
-                    GameObject tree = GameObject.Instantiate(attackableprefabs[Random.Range(0, attackableprefabs.Length)]);
+                    GameObject tree = GameObject.Instantiate(attackableprefabs[Random.Range(1, attackableprefabs.Length)]);
                     {
-                        tree.transform.position = lastEndPoint + new Vector3(0, 2.7f, 0); 
+                        tree.transform.position = lastEndPoint + new Vector3(0, 2.7f, 0);
                     }
                 }
-            }
 
-            lastEndPoint = platformScript.ReturnEndPoint();
+                else
+                    if (x >= 4)
+                {
+                    GameObject barrel = GameObject.Instantiate(attackableprefabs[Random.Range(0, attackableprefabs.Length)]);
+                    {
+                        barrel.transform.position = lastEndPoint + new Vector3(0, 1.2f, 0);
+                    }
+                }
+
+                lastEndPoint = platformScript.ReturnEndPoint();
+            }
         }
     }
     
@@ -48,5 +59,5 @@ public class GameManager : MonoBehaviour
     {
         
     }
-}
+ }
  
